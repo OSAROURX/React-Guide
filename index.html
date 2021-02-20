@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="icon" type="image/png" href="fvv.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>React Guide</title>
+  </head>
+
+  <body>
+    <main id="main-doc">
+      <nav id="navbar">
+        <header class="guide">
+          <img
+            src="https://i.ibb.co/K0CJcmM/React.png"
+            alt="React Logo"
+            width="50px"
+          />React Guide
+        </header>
+        <ul>
+          <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+          <li><a class="nav-link" href="#Use_cases">Use cases</a></li>
+          <li>
+            <a class="nav-link" href="#How_does_React_use_JavaScript"
+              >How does React use JavaScript</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="#Setting_up_your_first_React_app"
+              >Setting up your first React app</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="#Exploring_our_first_React_component"
+              >Exploring our first React component</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="#Interrogating_the_index"
+              >Interrogating the index</a
+            >
+          </li>
+          <li>
+            <a class="nav-link" href="#Variables_and_props"
+              >Variables and props</a
+            >
+          </li>
+          <li><a class="nav-link" href="#Summary">Summary</a></li>
+          <li><a class="nav-link" href="#Source">Source</a></li>
+        </ul>
+      </nav>
+      <section class="main-section" id="Introduction">
+        <header>
+          <h2>Introduction</h2>
+        </header>
+        <article>
+          <p>
+            As its official tagline states, React is a library for building user
+            interfaces. React is not a framework – it's not even exclusive to
+            the web. It's used with other libraries to render to certain
+            environments. For instance, React Native can be used to build mobile
+            applications; React 360 can be used to build virtual reality
+            applications; and there are other possibilities besides.
+          </p>
+          <p>
+            To build for the web, developers use React in tandem with ReactDOM.
+            React and ReactDOM are often discussed in the same spaces as — and
+            utilized to solve the same problems as — other true web development
+            frameworks. When we refer to React as a "framework", we’re working
+            with that colloquial understanding.
+          </p>
+          <p>
+            React's primary goal is to minimize the bugs that occur when
+            developers are building UIs. It does this through the use of
+            components — self-contained, logical pieces of code that describe a
+            portion of the user interface. These components can be composed
+            together to create a full UI, and React abstracts away much of the
+            rendering work, leaving you to concentrate on the UI design.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Use_cases">
+        <header>
+          <h2>Use cases</h2>
+        </header>
+        <article>
+          <p>
+            Unlike the other frameworks covered in this module, React does not
+            enforce strict rules around code conventions or file organization.
+            This allows teams to set conventions that work best for them, and to
+            adopt React in any way they would like to. React can handle a single
+            button, a few pieces of an interface, or an app's entire user
+            interface.
+          </p>
+          <p>
+            While React can be used for small pieces of an interface, it's not
+            as easy to "drop into" an application as a library like jQuery, or
+            even a framework like Vue — it is more approachable when you build
+            your entire app with React.
+          </p>
+          <p>
+            In addition, many of the developer-experience benefits of a React
+            app, such as writing interfaces with JSX, require a compilation
+            process. Adding a compiler like Babel to a website makes the code on
+            it run slowly, so developers often set up such tooling with a build
+            step. React arguably has a heavy tooling requirement, but it can be
+            learned.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="How_does_React_use_JavaScript">
+        <header>
+          <h2>How does React use JavaScript</h2>
+        </header>
+        <article>
+          <p>
+            React utilizes features of modern JavaScript for many of its
+            patterns. Its biggest departure from JavaScript comes with the use
+            of JSX syntax. JSX extends JavaScript's syntax so that HTML-like
+            code can live alongside it. For example:
+          </p>
+          <pre>
+            <code>
+              const heading = &lt;h1&gt;Mozilla Developer Network&lt;/h1&gt;;
+            </code>
+          </pre>
+          <p>
+            This heading constant is known as a JSX expression. React can use it
+            to render that <code> &lt;h1&gt; </code> tag in our app.
+          </p>
+          <p>
+            Suppose we wanted to wrap our heading in a
+            <code> &lt;header&gt; </code> tag, for semantic reasons? The JSX
+            approach allows us to nest our elements within each other, just like
+            we do with HTML:
+          </p>
+          <pre>
+            <code>
+  const header = (
+    &lt;header&gt;
+      &lt;h1&gt;Mozilla Developer Network&lt;/h1&gt;
+    &lt;/header&gt;
+  );
+            </code>
+          </pre>
+          <p>
+            Of course, your browser can't read JSX without help. When compiled
+            (using a tool like Babel or Parcel), our header expression would
+            look like this:
+          </p>
+          <pre>
+            <code>
+  const header = React.createElement("header", null,
+    React.createElement("h1", null, "Mozilla Developer Network")
+  );
+            </code>
+          </pre>
+          <p>
+            It's possible to skip the compilation step and use
+            React.createElement() to write your UI yourself. In doing this,
+            however, you lose the declarative benefit of JSX, and your code
+            becomes harder to read. Compilation is an extra step in the
+            development process, but many developers in the React community
+            think that the readability of JSX is worthwhile. Plus, popular
+            tooling makes the JSX-to-JavaScript compilation part of its setup
+            process. You don't have to configure compilation yourself unless you
+            want to.
+          </p>
+          <p>
+            Because JSX is a blend of HTML and JavaScript, some developers find
+            it intuitive. Others say that its blended nature makes it confusing.
+            Once you're comfortable with it, however, it will allow you to build
+            user interfaces more quickly and intuitively, and allow others to
+            better understand your codebase at a glance.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Setting_up_your_first_React_app">
+        <header>
+          <h2>Setting up your first React app</h2>
+        </header>
+        <article>
+          <p>
+            There are many ways to use React, but we're going to use the
+            command-line interface (CLI) tool create-react-app, as mentioned
+            earlier, which expedites the process of developing a React
+            application by installing some packages and creating some files for
+            you, handling the tooling described above.
+          </p>
+          <p>
+            It's possible to add React to a website without create-react-app by
+            copying some <code>&lt;script&gt;</code> elements into an HTML file,
+            but the create-react-app CLI is a common starting point for React
+            applications. Using it will allow you spend more time building your
+            app, and less time fussing with setup.
+          </p>
+          <h3>Requirements:</h3>
+          <p>
+            In order to use create-react-app, you need to have Node.js
+            installed. It's recommended that you use the long-term support (LTS)
+            version. Node includes npm (the node package manager), and npx (the
+            node package runner).
+          </p>
+          <p>
+            You may also use the Yarn package manager as an alternative, but
+            we'll assume you are using npm in this set of tutorials. See Package
+            management basics for more information on npm and yarn.
+          </p>
+          <p>
+            If you're using Windows, you will need to install some software to
+            give you parity with Unix/macOS terminal in order to use the
+            terminal commands mentioned in this tutorial.
+            <strong>Gitbash</strong> (which comes as part of the git for Windows
+            toolset) or <strong>Windows Subsystem for Linux (WSL)</strong> are
+            both suitable. See Command line crash course for more information on
+            these, and on terminal commands in general.
+          </p>
+          <p>
+            If you're using Windows, you will need to install some software to
+            give you parity with Unix/macOS terminal in order to use the
+            terminal commands mentioned in this tutorial. Gitbash (which comes
+            as part of the git for Windows toolset) or Windows Subsystem for
+            Linux (WSL) are both suitable. See Command line crash course for
+            more information on these, and on terminal commands in general.
+          </p>
+          <p>
+            Also bear in mind that React and ReactDOM produce apps that only
+            work on a fairly modern set of browsers — IE9+ by way of some
+            polyfills. It is recommended that you use a modern browser like
+            Firefox, Safari, or Chrome when working through these tutorials.
+          </p>
+          <h3>Initializing your app:</h3>
+          <p>
+            create-react-app takes one argument: the name you'd like to give
+            your app. create-react-app uses this name to make a new directory,
+            then creates the necessary files inside it. Make sure you
+            <code>cd</code> to the place you'd like your app to live on your
+            hard drive, then run the following in your terminal:
+          </p>
+          <pre>
+            <code>
+  npx create-react-app moz-todo-react
+            </code>
+          </pre>
+          <p>
+            This creates a moz-todo-react directory, and does several things
+            inside it:
+          </p>
+          <ul>
+            <li>
+              Installs some npm packages essential to the functionality of the
+              app.
+            </li>
+            <li>Writes scripts for starting and serving the application.</li>
+            <li>
+              Creates a structure of files and directories that define the basic
+              app architecture.
+            </li>
+            <li>
+              Initializes the directory as a git repository, if you have git
+              installed on your computer.
+            </li>
+          </ul>
+          <p>
+            When the process is complete, <code>cd</code> into the
+            <code>moz-todo-react</code> directory and run the command
+            <code>npm start</code>. The scripts installed by create-react-app
+            will start being served at a local server at localhost:3000, and
+            open the app in a new browser tab. Your browser will display
+            something like this:
+          </p>
+          <div class="image">
+            <img
+              src="https://i.ibb.co/YRqfwBv/react-web.png"
+              alt="default create react app"
+              width="150px"
+            />
+          </div>
+          <h3>Application structure:</h3>
+          <p>
+            create-react-app gives us everything we need to develop a React
+            application. Its initial file structure looks like this:
+          </p>
+          <pre>
+            <code>
+  moz-todo-react
+  &#x251C;&#x2500;&#x2500; README.md
+  &#x251C;&#x2500;&#x2500; node_modules
+  &#x251C;&#x2500;&#x2500; package.json
+  &#x251C;&#x2500;&#x2500; package-lock.json
+  &#x251C;&#x2500;&#x2500; .gitignore
+  &#x251C;&#x2500;&#x2500; public
+  &#x2502;   &#x251C;&#x2500;&#x2500; favicon.ico
+  &#x2502;   &#x251C;&#x2500;&#x2500; index.html
+  &#x2502;   &#x2514;&#x2500;&#x2500; manifest.json
+  &#x2514;&#x2500;&#x2500; src
+  &#x251C;&#x2500;&#x2500; App.css
+  &#x251C;&#x2500;&#x2500; App.js
+  &#x251C;&#x2500;&#x2500; App.test.js
+  &#x251C;&#x2500;&#x2500; index.css
+  &#x251C;&#x2500;&#x2500; index.js
+  &#x251C;&#x2500;&#x2500; logo.svg
+  &#x2514;&#x2500;&#x2500; serviceWorker.js
+            </code>
+          </pre>
+          <p>
+            The <code><strong>src</strong></code> directory is where we'll spend
+            most of our time, as it's where the source code for our application
+            lives.
+          </p>
+          <p>
+            The <code><strong>public</strong></code> directory contains files
+            that will be read by your browser while you're developing the app;
+            the most important of these is <code>index.html</code>. React
+            injects your code into this file so that your browser can run it.
+            There's some other markup that helps create-react-app function, so
+            take care not to edit it unless you know what you're doing. You very
+            much should change the text inside the
+            <code>&lt;title&gt;</code> element in this file to reflect the title
+            of your application. Accurate page titles are important for
+            accessibility!
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Exploring_our_first_React_component">
+        <header>
+          <h2>Exploring our first React component</h2>
+        </header>
+        <article>
+          <p>
+            In React, a component is a reusable module that renders a part of
+            our app. These parts can be big or small, but they are usually
+            clearly defined: they serve a single, obvious purpose.
+          </p>
+          <p>
+            Let's open <code>src/App.js</code>, since our browser is prompting
+            us to edit it. This file contains our first component,
+            <code>App</code>, and a few other lines of code:
+          </p>
+          <pre>
+            <code>
+  import React from &#x27;react&#x27;;
+  import logo from &#x27;./logo.svg&#x27;;
+  import &#x27;./App.css&#x27;;
+
+  function App() {
+    return (
+      &#x3C;div className=&#x22;App&#x22;&#x3E;
+        &#x3C;header className=&#x22;App-header&#x22;&#x3E;
+          &#x3C;img src={logo} className=&#x22;App-logo&#x22; alt=&#x22;logo&#x22; /&#x3E;
+          &#x3C;p&#x3E;
+            Edit &#x3C;code&#x3E;src/App.js&#x3C;/code&#x3E; and save to reload.
+          &#x3C;/p&#x3E;
+          &#x3C;a
+            className=&#x22;App-link&#x22;
+            href=&#x22;https://reactjs.org&#x22;
+            target=&#x22;_blank&#x22;
+            rel=&#x22;noopener noreferrer&#x22;
+          &#x3E;
+            Learn React
+          &#x3C;/a&#x3E;
+        &#x3C;/header&#x3E;
+      &#x3C;/div&#x3E;
+    );
+  }
+  export default App;
+            </code>
+          </pre>
+          <p>
+            The <code>App.js</code> file consists of three main parts: some
+            <code>import</code> statements at the top, the
+            <code>App</code> component in the middle, and an
+            <code>export</code> statement at the bottom. Most React components
+            follow this pattern.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Interrogating_the_index">
+        <header>
+          <h2>Interrogating the index</h2>
+        </header>
+        <article>
+          <p>
+            Let’s open <code>src/index.js</code>, because that's where the
+            <code>App</code> component is being used. This file is the entry
+            point for our app, and it initially looks like this:
+          </p>
+          <pre>
+            <code>
+  import React from &#x27;react&#x27;;
+  import ReactDOM from &#x27;react-dom&#x27;;
+  import &#x27;./index.css&#x27;;
+  import App from &#x27;./App&#x27;;
+  import * as serviceWorker from &#x27;./serviceWorker&#x27;;
+
+    ReactDOM.render(
+      &#x3C;React.StrictMode&#x3E;
+        &#x3C;App /&#x3E;
+      &#x3C;/React.StrictMode&#x3E;,
+      document.getElementById(&#x27;root&#x27;)
+   );
+
+  serviceWorker.unregister();
+            </code>
+          </pre>
+          <p>
+            As with <code>App.js</code>, the file starts by importing all the JS
+            modules and other assets it needs to run.
+            <code>src/index.css</code> holds global styles that are applied to
+            our whole app. We can also see our App component imported here; it
+            is made available for import thanks to the export statement at the
+            bottom of <code>App.js</code>.
+          </p>
+          <p>
+            Line 7 calls React’s <code>ReactDOM.render()</code> function with
+            two arguments:
+          </p>
+          <ul>
+            <li>
+              The component we want to render, <code>&lt;App /&gt;</code> in
+              this case.
+            </li>
+            <li>
+              The DOM element inside which we want the component to be rendered,
+              in this case the element with an ID of <code>root</code>. If you
+              look inside <code>public/index.html</code>, you'll see that this
+              is a <code>&lt;div&gt;</code> element just inside the
+              <code>&lt;body&gt;</code>.
+            </li>
+          </ul>
+          <p>
+            All of this tells React that we want to render our React application
+            with the <code>App</code> component as the root, or first component.
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Variables_and_props">
+        <header>
+          <h2>Variables and props</h2>
+        </header>
+        <article>
+          <p>
+            Next, we'll use a few of our JavaScript skills to get a bit more
+            comfortable editing components and working with data in React. We'll
+            talk about how variables are used inside JSX, and introduce props,
+            which are a way of passing data into a component (which can then be
+            accessed using variables).
+          </p>
+        </article>
+      </section>
+      <section class="main-section" id="Summary">
+        <header>
+          <h2>Summary</h2>
+        </header>
+        <article>
+          <p>
+            This brings us to the end of our initial look at React, including
+            how to install it locally, creating a starter app, and how the
+            basics work. In the next article, we'll start building our first
+            proper application — a todo list. Before we do that, however, let's
+            recap some of the things we’ve learned.
+          </p>
+          <p>In React:</p>
+          <ul>
+            <li>
+              Components can import modules they need and must export themselves
+              at the bottom of their files.
+            </li>
+            <li>Component functions are named with <code>PascalCase</code>.</li>
+            <li>
+              You can read JSX variables by putting them between curly braces,
+              like <code>{so}</code>.
+            </li>
+            <li>
+              Some JSX attributes are different than HTML attributes so that
+              they don't conflict with JavaScript reserved words. For example,
+              <code>class</code> in HTML translates to <code>className</code> in
+              JSX. Note that multi-word attributes are camel-cased.
+            </li>
+            <li>
+              Props are written just like attributes inside component calls and
+              are passed into components.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section class="main-section" id="Source">
+        <header>
+          <h2>Source</h2>
+        </header>
+        <p>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started"
+            target="_blank"
+            >React</a
+          >by Mozilla Contributors is licensed under<a
+            href="https://creativecommons.org/licenses/by-sa/2.5/"
+            target="_blank"
+            >CC-BY-SA 2.5</a
+          >.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <h3 class="per">
+        Coded by
+        <a href="https://www.freecodecamp.org/leviathansr">LeviaTahnSr</a>
+      </h3>
+    </footer>
+  </body>
+</html>
