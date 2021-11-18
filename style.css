@@ -157,12 +157,14 @@ footer {
 
 .per {
   background-color: transparent;
-  color: black;
+  color: rgb(0, 0, 0);
+  font-weight: 100;
+  font-size: 18px;
 }
 
 .per a {
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 
 .per a:hover {
