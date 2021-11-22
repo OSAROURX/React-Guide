@@ -20,7 +20,7 @@ html {
 
 #navbar {
   position: fixed;
-  width: 27%;
+  width: 28%;
   box-shadow: 2px 0px 7px 0px rgba(0, 0, 0, 0.4);
   height: 100%;
 }
@@ -136,6 +136,7 @@ code {
   color: green;
   text-decoration: underline;
 }
+
 .image {
   background-color: #db8f00;
   width: 50%;
@@ -149,38 +150,49 @@ code {
 }
 
 footer {
-  width: 100%;
+  /* width: 100%; */
   text-align: center;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-top: auto;
+  height: 50px;
 }
 
 .per {
   background-color: transparent;
   color: rgb(0, 0, 0);
-  font-weight: 100;
-  font-size: 18px;
+  font-size: 20px;
 }
 
-.per a {
-  text-decoration: none;
-  color: rgb(0, 0, 0);
+.rotate {
+  animation: rotation 5s infinite linear;
 }
 
-.per a:hover {
-  color: #e70000;
-  text-decoration: underline;
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
+
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 17px;
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(148, 148, 148);
+  background: rgb(0, 0, 0);
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #000000;
 }
 
 @media only screen and (max-width: 850px) {
@@ -265,5 +277,21 @@ footer {
   .guide img {
     position: relative;
     margin-right: 10px;
+  }
+
+  footer {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: auto;
+    padding: 10px;
+  }
+
+  .per {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
   }
 }

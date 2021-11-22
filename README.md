@@ -1,1 +1,1 @@
-# [React-Guide](https://leviathansr.github.io/React-Guide/)
+# [React-Guide](https://technical-documentation-sr.netlify.app/)
