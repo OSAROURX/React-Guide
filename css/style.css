@@ -1,0 +1,247 @@
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/roboto-v30-latin-regular.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url("../fonts/roboto-v30-latin-regular.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/roboto-v30-latin-700.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      url("../fonts/roboto-v30-latin-700.ttf") format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 100%;
+  border-right: 3px solid black;
+}
+
+#navbar .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 1rem;
+  color: white;
+  background-color: black;
+  border-bottom: 3px solid black;
+}
+
+#navbar .title img {
+  width: 45px;
+  margin-left: 2rem;
+}
+#navbar ul {
+  height: 87%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#navbar li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  font-size: 1.25rem;
+  border-bottom: 1px solid black;
+}
+
+#navbar li:last-child {
+  border-bottom: none;
+}
+
+#navbar .nav-link {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 1rem;
+}
+
+#navbar li:hover {
+  background-color: #eeeeee;
+}
+
+#main-doc {
+  position: absolute;
+  max-width: max-content;
+  margin-left: 20rem;
+  margin-right: 2rem;
+  padding: 1em 0;
+}
+
+.main-section header h2 {
+  font-size: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.main-section article h3 {
+  width: max-content;
+  margin-left: 2rem;
+  background-color: rgb(14, 14, 14);
+  font-size: 1.5rem;
+  color: #e7e7e7;
+  margin-block: 1rem;
+}
+
+.main-section article p,
+.main-section footer p {
+  max-width: 100%;
+  font-size: 1rem;
+  margin-left: 2rem;
+  padding-inline: 0;
+  padding-block: 0.5em;
+}
+
+.main-section article p:nth-last-child(1),
+.main-section footer p:nth-last-child(1),
+#Summary article ul li:nth-last-child(1) {
+  padding-bottom: 2.5em;
+}
+
+.main-section article pre {
+  max-width: 100%;
+  background: #343434;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 1em 0.75em;
+  margin-inline: 2rem 0;
+  margin-block: 1rem;
+  white-space: pre-wrap;
+}
+
+.main-section article pre code {
+  padding: 0;
+  color: #ffffff;
+}
+
+.main-section article p code,
+.main-section article ul code {
+  color: red;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.main-section ul {
+  margin-left: 5rem;
+}
+
+.main-section li {
+  width: 70%;
+  margin: 0.5rem;
+  list-style: disc;
+}
+
+.main-section a {
+  text-decoration: none;
+  color: black;
+  margin: 0;
+}
+
+.main-section a:hover {
+  color: rgb(0, 162, 255);
+  text-decoration: underline;
+}
+
+.main-section a:hover:nth-last-child(1) {
+  color: red;
+}
+
+.image {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.main-section .image img {
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.rotate {
+  animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #navbar {
+    position: relative;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+    border-right: none;
+    border-bottom: 3px solid black;
+  }
+
+  #navbar ul {
+    max-height: 280px;
+  }
+
+  #main-doc {
+    position: absolute;
+    max-width: max-content;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    word-wrap: break-word;
+  }
+
+  #Introduction header h2 {
+    margin-top: 1rem;
+  }
+
+  .main-section header h2,
+  .main-section article h3,
+  .main-section article p,
+  .main-section footer p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  /* article {
+    position: relative;
+  } */
+
+  .main-section article pre {
+    margin-inline: 1rem;
+  }
+
+  .image {
+    width: 90%;
+  }
+}
