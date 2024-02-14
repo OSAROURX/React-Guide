@@ -2,31 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://i.ibb.co/cvnpBsb/technical-doc-favicon.png"
+    <meta
+      name="description"
+      content="freeCodeCamp Project: Build a Technical Documentation Page "
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
+    <meta
+      name="keywords"
+      content="freeCodeCamp, project, technical documentation page"
     />
-    <title>React Guide</title>
+    <meta name="author" content="OMAR SAROUR" />
+    <title>Technical Documentation Page</title>
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-
   <body>
     <main id="main-doc">
       <nav id="navbar">
-        <header class="guide">
-          <img
-            src="https://i.ibb.co/K0CJcmM/React.png"
-            alt="React Logo"
-            width="50px"
-            class="rotate"
-          />React Guide
+        <header class="title">
+          <h1>React Docs</h1>
+          <img class="rotate" src="images/react-logo.svg" alt="react logo" />
         </header>
         <ul>
           <li><a class="nav-link" href="#Introduction">Introduction</a></li>
@@ -130,11 +126,7 @@
             of JSX syntax. JSX extends JavaScript's syntax so that HTML-like
             code can live alongside it. For example:
           </p>
-          <pre>
-            <code>
-              const heading = &lt;h1&gt;Mozilla Developer Network&lt;/h1&gt;;
-            </code>
-          </pre>
+          <pre><code>const heading = &lt;h1&gt;Mozilla Developer Network&lt;/h1&gt;;</code></pre>
           <p>
             This heading constant is known as a JSX expression. React can use it
             to render that <code> &lt;h1&gt; </code> tag in our app.
@@ -145,27 +137,19 @@
             approach allows us to nest our elements within each other, just like
             we do with HTML:
           </p>
-          <pre>
-            <code>
-  const header = (
-    &lt;header&gt;
-      &lt;h1&gt;Mozilla Developer Network&lt;/h1&gt;
-    &lt;/header&gt;
-  );
-            </code>
-          </pre>
+          <pre><code>const header = (
+  &lt;header&gt;
+    &lt;h1&gt;Mozilla Developer Network&lt;/h1&gt;
+  &lt;/header&gt;
+);</code></pre>
           <p>
             Of course, your browser can't read JSX without help. When compiled
             (using a tool like Babel or Parcel), our header expression would
             look like this:
           </p>
-          <pre>
-            <code>
-  const header = React.createElement("header", null,
+          <pre><code>const header = React.createElement("header", null,
     React.createElement("h1", null, "Mozilla Developer Network")
-  );
-            </code>
-          </pre>
+);</code></pre>
           <p>
             It's possible to skip the compilation step and use
             React.createElement() to write your UI yourself. In doing this,
@@ -248,11 +232,7 @@
             <code>cd</code> to the place you'd like your app to live on your
             hard drive, then run the following in your terminal:
           </p>
-          <pre>
-            <code>
-  npx create-react-app moz-todo-react
-            </code>
-          </pre>
+          <pre><code>npx create-react-app moz-todo-react</code></pre>
           <p>
             This creates a moz-todo-react directory, and does several things
             inside it:
@@ -281,20 +261,14 @@
             something like this:
           </p>
           <div class="image">
-            <img
-              src="https://i.ibb.co/YRqfwBv/react-web.png"
-              alt="default create react app"
-              width="150px"
-            />
+            <img src="images/react-web.webp" alt="default create react app" />
           </div>
           <h3>Application structure:</h3>
           <p>
             create-react-app gives us everything we need to develop a React
             application. Its initial file structure looks like this:
           </p>
-          <pre>
-            <code>
-  moz-todo-react
+          <pre><code>  moz-todo-react
   &#x251C;&#x2500;&#x2500; README.md
   &#x251C;&#x2500;&#x2500; node_modules
   &#x251C;&#x2500;&#x2500; package.json
@@ -311,9 +285,7 @@
   &#x251C;&#x2500;&#x2500; index.css
   &#x251C;&#x2500;&#x2500; index.js
   &#x251C;&#x2500;&#x2500; logo.svg
-  &#x2514;&#x2500;&#x2500; serviceWorker.js
-            </code>
-          </pre>
+  &#x2514;&#x2500;&#x2500; serviceWorker.js</code></pre>
           <p>
             The <code><strong>src</strong></code> directory is where we'll spend
             most of our time, as it's where the source code for our application
@@ -348,9 +320,7 @@
             us to edit it. This file contains our first component,
             <code>App</code>, and a few other lines of code:
           </p>
-          <pre>
-            <code>
-  import React from &#x27;react&#x27;;
+          <pre><code>  import React from &#x27;react&#x27;;
   import logo from &#x27;./logo.svg&#x27;;
   import &#x27;./App.css&#x27;;
 
@@ -367,16 +337,13 @@
             href=&#x22;https://reactjs.org&#x22;
             target=&#x22;_blank&#x22;
             rel=&#x22;noopener noreferrer&#x22;
-          &#x3E;
-            Learn React
+          &#x3E;Learn React
           &#x3C;/a&#x3E;
         &#x3C;/header&#x3E;
       &#x3C;/div&#x3E;
     );
   }
-  export default App;
-            </code>
-          </pre>
+  export default App;</code></pre>
           <p>
             The <code>App.js</code> file consists of three main parts: some
             <code>import</code> statements at the top, the
@@ -396,9 +363,7 @@
             <code>App</code> component is being used. This file is the entry
             point for our app, and it initially looks like this:
           </p>
-          <pre>
-            <code>
-  import React from &#x27;react&#x27;;
+          <pre><code>  import React from &#x27;react&#x27;;
   import ReactDOM from &#x27;react-dom&#x27;;
   import &#x27;./index.css&#x27;;
   import App from &#x27;./App&#x27;;
@@ -411,9 +376,7 @@
       document.getElementById(&#x27;root&#x27;)
    );
 
-  serviceWorker.unregister();
-            </code>
-          </pre>
+  serviceWorker.unregister();</code></pre>
           <p>
             As with <code>App.js</code>, the file starts by importing all the JS
             modules and other assets it needs to run.
@@ -499,22 +462,22 @@
         <header>
           <h2>Source</h2>
         </header>
-        <p>
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started"
-            target="_blank"
-            >React</a
-          >by Mozilla Contributors is licensed under<a
-            href="https://creativecommons.org/licenses/by-sa/2.5/"
-            target="_blank"
-            >CC-BY-SA 2.5</a
-          >.
-        </p>
+        <footer>
+          <p>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started"
+              target="_blank"
+              >React </a
+            >by Mozilla Contributors is licensed under<a
+              href="https://creativecommons.org/licenses/by-sa/2.5/"
+              target="_blank"
+            >
+              CC-BY-SA 2.5</a
+            >.
+          </p>
+        </footer>
       </section>
     </main>
-    <footer>
-      <div class="per">By OSAROURX</div>
-    </footer>
     <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
   </body>
 </html>
