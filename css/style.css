@@ -112,7 +112,7 @@ body {
 .main-section article p,
 .main-section footer p {
   max-width: 100%;
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin-left: 2rem;
   padding-inline: 0;
   padding-block: 0.5em;
@@ -128,7 +128,7 @@ body {
   max-width: 100%;
   background: #343434;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.125rem;
   padding: 1em 0.75em;
   margin-inline: 2rem 0;
   margin-block: 1rem;
@@ -142,12 +142,13 @@ body {
 
 .main-section article p code,
 .main-section article ul code {
-  color: red;
+  color: rgb(12, 38, 110);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 
 .main-section ul {
+  font-size: 1.125rem;
   margin-left: 5rem;
 }
 
@@ -173,13 +174,15 @@ body {
 }
 
 .image {
-  width: 80%;
-  margin: 0 auto;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
 }
 
 .main-section .image img {
   max-width: 100%;
-  margin: 0 auto;
   border-radius: 5px;
 }
 
@@ -232,20 +235,13 @@ body {
   .main-section header h2,
   .main-section article h3,
   .main-section article p,
-  .main-section footer p {
+  .main-section footer p,
+  .image {
     margin-left: 1rem;
     margin-right: 1rem;
   }
 
-  /* article {
-    position: relative;
-  } */
-
   .main-section article pre {
     margin-inline: 1rem;
-  }
-
-  .image {
-    width: 90%;
   }
 }
